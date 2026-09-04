@@ -338,6 +338,12 @@ client.on(Events.MessageCreate, (message) => {
   if (message.author.bot) return;
   if (message.content.toLowerCase().includes('alvarilloo')) {
     message.reply('quesito');
+    return;
+  }
+  if (message.content.startsWith('>')) {
+    const texto = message.content.slice(1).trim();
+    if (!texto) return;
+    message.channel.send(texto);
   }
 });
 

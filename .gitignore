@@ -3,4 +3,6 @@ node_modules/
 mi-bot.zip
 bot.log
 bot-err.log
-web/vchannel.json
+vchannel.json
+src/
+mi-bot/

@@ -343,6 +343,7 @@ client.on(Events.MessageCreate, async (message) => {
   if (message.content.startsWith('>')) {
     const texto = message.content.slice(1).trim();
     if (!texto) return;
+    if (!message.member.permissions.has(PermissionFlagsBits.Administrator)) return;
     await message.delete().catch(() => {});
     await message.channel.send(texto);
   }

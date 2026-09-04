@@ -334,7 +334,7 @@ crear(
   }
 );
 
-client.on(Events.MessageCreate, (message) => {
+client.on(Events.MessageCreate, async (message) => {
   if (message.author.bot) return;
   if (message.content.toLowerCase().includes('alvarilloo')) {
     message.reply('quesito');
@@ -343,7 +343,8 @@ client.on(Events.MessageCreate, (message) => {
   if (message.content.startsWith('>')) {
     const texto = message.content.slice(1).trim();
     if (!texto) return;
-    message.channel.send(texto);
+    await message.delete().catch(() => {});
+    await message.channel.send(texto);
   }
 });
 
